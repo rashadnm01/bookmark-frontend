@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 
 const Form = (props) => {
-  const [formData, setFormData] = useState();
-  const [formData2, setFormData2] = useState();
+  const [formData, setFormData] = useState({ website: "", link: "" });
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.getBookmark(formData, formData2);
+    props.getBookmark(formData);
   };
   return (
     <section>
@@ -13,14 +12,14 @@ const Form = (props) => {
         <label>Website: </label>
         <input
           type="text"
-          value={formData}
+          value={formData.website}
           onChange={(event) => setFormData(event.target.value)}
         />
         <label>Link: </label>
         <input
           type="text"
-          value={formData2}
-          onChange={(event) => setFormData2(event.target.value)}
+          value={formData.link}
+          onChange={(event) => setFormData(event.target.value)}
         />
         <input type="submit" value="Submit" />
       </form>
