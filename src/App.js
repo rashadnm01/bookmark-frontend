@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { useState } from "react";
 
 // IMPORT COMPONENTS
 import Header from "./components/Header";
@@ -7,20 +8,64 @@ import { Route, Routes } from "react-router-dom";
 // IMPORT PAGES
 import Index from "./pages/index";
 import Show from "./pages/show";
-import Update from "./pages/update";
-import Delete from "./pages/dalete";
 
 function App() {
-  // URL should have YOUR HEROKU URL for your backend, make sure you include the trailing slash
-  const URL = "https://express-react-hw-api.herokuapp.com/";
+  const [bookmark, setBookmark] = useState();
+  const URL = "";
+
+  const getBookmark = async () => {
+    const response = await fetch(URL);
+    const data = response.json();
+    setBookmark(data);
+  };
+  const createBookmark = async (mark) => {
+    await fetch(URL, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(mark),
+    });
+    getBookmark();
+  };
+  const updateBookmark = async (mark, id) => {
+    await fetch(URL + id, {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(mark),
+    });
+    getBookmark();
+  };
+  const deleteBookmark = async (id) => {
+    await fetch(URL + id, {
+      method: "delete",
+    });
+    getBookmark();
+  };
 
   return (
     <div className="App">
       <Header />
       <Routes>
-        <Route exact path="/" element={<Index />} />
-        <Route exact path="/projects" element={<Show URL={URL} />} />
-        <Route exact path="/about" element={<Update URL={URL} />} />
+        <Route
+          exact
+          path="/"
+          element={
+            <Index bookmark={bookmark} createBookmark={createBookmark} />
+          }
+        />
+        <Route
+          path="/:id"
+          element={
+            <Show
+              bookmark={bookmark}
+              updateBookmark={updateBookmark}
+              deleteBookmark={deleteBookmark}
+            />
+          }
+        />
       </Routes>
       <Footer />
     </div>
