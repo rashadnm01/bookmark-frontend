@@ -21,7 +21,7 @@ const Index = (props) => {
   const handleSubmit = (event) => {
     // prevent the page from refreshing
     event.preventDefault();
-    // pass the form data to createPeople function
+    // pass the form data to createWebsites function
     props.createWebsites(newForm);
     // reset the form to empty
     setNewForm({
