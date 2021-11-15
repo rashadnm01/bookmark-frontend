@@ -8,11 +8,11 @@ const Show = (props) => {
   const params = useParams();
   // grab the id from params
   const id = params.id;
-  // grab sites from props
+  // grab websites from props
   const websites = props.websites;
   // create state for form
   const [editForm, setEditForm] = useState({});
-  // useEffect to set state to the existing person, when the data is available
+  // useEffect to set state to the existing site, when the data is available
   useEffect(() => {
     if (props.websites) {
       const site = websites.find((p) => p._id === id);
@@ -21,7 +21,7 @@ const Show = (props) => {
   }, [props.websites]);
 
   if (props.websites) {
-    // grab the target person from the people array
+    // grab the target site from the websites array
     const site = websites.find((p) => p._id === id);
 
     // handleChange function for form
@@ -38,9 +38,9 @@ const Show = (props) => {
     const handleSubmit = (event) => {
       // prevent the refresh
       event.preventDefault();
-      // pass the form data to updatePeople
+      // pass the form data to updateWebsites
       props.updateWebsites(editForm, site._id);
-      // redirect people back to index
+      // redirect websites back to index
       navigate("/");
     };
     const removeSite = () => {
