@@ -8,10 +8,11 @@ import { Route, Routes } from "react-router-dom";
 // IMPORT PAGES
 import Index from "./pages/index";
 import Show from "./pages/show";
+import Bookmark from "./components/Bookmarks";
 
 function App() {
   const [bookmark, setBookmark] = useState();
-  const URL = "";
+  const URL = "https://bookmark-backennd.herokuapp.com/";
 
   const getBookmark = async () => {
     const response = await fetch(URL);
