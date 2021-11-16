@@ -91,3 +91,14 @@ input {
 .site > h2 {
   margin: 20px;
 }
+@media only screen and (max-device-width: 500px) {
+  .logo {
+    font-size: 4em;
+  }
+
+  .bookmark {
+    margin: 10px;
+    border: 2px solid rgb(240, 102, 102);
+    border-radius: 5px;
+  }
+}
