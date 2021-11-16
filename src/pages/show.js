@@ -71,7 +71,9 @@ const Show = (props) => {
     return (
       <div className="site">
         <h1>{bookmark.website}</h1>
-        <h2>{bookmark.link}</h2>
+        <a href={bookmark.link} target="_blank">
+          <h2>{bookmark.link}</h2>
+        </a>
         {form}
         <button class="btn btn-danger" onClick={removeBookmark}>
           DELETE WEBSITE
