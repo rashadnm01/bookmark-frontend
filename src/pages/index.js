@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const Index = (props) => {
   // state to hold form data
   const [newForm, setNewForm] = useState({
-    website: "",
-    link: "",
+    website: String,
+    link: String,
   });
 
   //handleChange function to sync input with state
@@ -21,12 +21,12 @@ const Index = (props) => {
   const handleSubmit = (event) => {
     // prevent the page from refreshing
     event.preventDefault();
-    // pass the form data to createWebsites function
-    props.createWebsites(newForm);
+    // pass the form data to createBookmarks function
+    props.createBookmarks(newForm);
     // reset the form to empty
     setNewForm({
-      website: "",
-      link: "",
+      website: String,
+      link: String,
     });
   };
 
@@ -51,17 +51,17 @@ const Index = (props) => {
     </form>
   );
 
-  if (props.websites) {
+  if (props.bookmarks) {
     return (
       <section>
         {form}
-        {props.websites.map((site) => {
+        {props.bookmarks.map((bookmark) => {
           return (
-            <div key={site._id} className="site">
-              <Link to={`/websites/${site._id}`}>
-                <h1>{site.website}</h1>
+            <div key={bookmark._id} className="bookmark">
+              <Link to={`/bookmarks/${bookmark._id}`}>
+                <h1>{bookmark.website}</h1>
               </Link>
-              <h3>{site.link}</h3>
+              <h3>{bookmark.link}</h3>
             </div>
           );
         })}
