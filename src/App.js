@@ -10,59 +10,62 @@ import Show from "./pages/show";
 import Bookmark from "./components/Bookmarks";
 
 function App() {
-  const [bookmark, setBookmark] = useState();
+  const [bookmarks, setBookmarks] = useState(null);
   const URL = "https://bookmark-backennd.herokuapp.com/";
 
-  const getBookmark = async () => {
+  const getBookmarks = async () => {
     const response = await fetch(URL);
-    const data = response.json();
-    setBookmark(data);
+    const data = await response.json();
+    setBookmarks(data);
   };
-  const createBookmark = async (mark) => {
+  const createBookmarks = async (bookmark) => {
     await fetch(URL, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(mark),
+      body: JSON.stringify(bookmark),
     });
-    getBookmark();
+    getBookmarks();
   };
-  const updateBookmark = async (mark, id) => {
+  const updateBookmarks = async (bookmark, id) => {
     await fetch(URL + id, {
       method: "put",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(mark),
+      body: JSON.stringify(bookmark),
     });
-    getBookmark();
+    getBookmarks();
   };
-  const deleteBookmark = async (id) => {
+  const deleteBookmarks = async (id) => {
     await fetch(URL + id, {
       method: "delete",
     });
-    getBookmark();
+    getBookmarks();
   };
+
+  useEffect(() => {
+    getBookmarks();
+  }, []);
 
   return (
     <div className="App">
       <Header />
       <Routes>
         <Route
-          exact
           path="/"
           element={
-            <Index bookmark={bookmark} createBookmark={createBookmark} />
+            <Index bookmarks={bookmarks} createBookmarks={createBookmarks} />
           }
         />
         <Route
-          path="/:id"
+          path="/bookmarks/:id"
           element={
             <Show
-              bookmark={bookmark}
-              updateBookmark={updateBookmark}
-              deleteBookmark={deleteBookmark}
+              bookmarks={bookmarks}
+              updateBookmarks={updateBookmarks}
+              deleteBookmarks={deleteBookmarks}
             />
           }
         />
