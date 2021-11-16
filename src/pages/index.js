@@ -4,17 +4,14 @@ import { Link } from "react-router-dom";
 const Index = (props) => {
   // state to hold form data
   const [newForm, setNewForm] = useState({
-    website: String,
-    link: String,
+    website: "",
+    link: "",
   });
 
   //handleChange function to sync input with state
   const handleChange = (event) => {
-    // make a copy of state
     const newState = { ...newForm };
-    // update the newState
-    newState[event.target.website] = event.target.value;
-    // update the state
+    newState[event.target.name] = event.target.value;
     setNewForm(newState);
   };
   // handleSubmit function for when form is submitted
@@ -25,8 +22,8 @@ const Index = (props) => {
     props.createBookmarks(newForm);
     // reset the form to empty
     setNewForm({
-      website: String,
-      link: String,
+      website: "",
+      link: "",
     });
   };
 
@@ -47,7 +44,7 @@ const Index = (props) => {
         onChange={handleChange}
       />
 
-      <input type="submit" value="Bookmark Website" />
+      <input class="btn btn-success" type="submit" value="Bookmark Website" />
     </form>
   );
 
@@ -58,10 +55,10 @@ const Index = (props) => {
         {props.bookmarks.map((bookmark) => {
           return (
             <div key={bookmark._id} className="bookmark">
-              <Link to={`/bookmarks/${bookmark._id}`}>
-                <h1>{bookmark.website}</h1>
+              <Link className="link-dark" to={`/bookmarks/${bookmark._id}`}>
+                <h2>{bookmark.website}</h2>
+                <h3>{bookmark.link}</h3>
               </Link>
-              <h3>{bookmark.link}</h3>
             </div>
           );
         })}
