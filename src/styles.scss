@@ -6,13 +6,11 @@
   margin: 0;
 }
 
-$maincolor: rgb(71, 76, 79);
-$contrastcolor: rgb(247, 246, 244);
-
+$maincolor: rgb(247, 246, 244);
+$contrastcolor: rgb(71, 76, 79);
 // ---------------------
 // Mixins
 // ---------------------
-
 @mixin light-text-dark-bg {
   color: $contrastcolor;
   background-color: $maincolor;
@@ -34,6 +32,7 @@ nav {
 
   a {
     @include light-text-dark-bg();
+    text-decoration: none;
 
     div {
       margin: 20px;
@@ -51,14 +50,14 @@ body {
 .logo {
   font-family: "Grechen Fuemen", cursive;
   font-size: 7em;
-  margin: 40px;
+  margin: 30px;
   color: rgb(71, 76, 79);
-  text-shadow: 5px 2px rgb(132, 148, 147);
+  text-shadow: 4px 2px rgb(240, 102, 102);
 }
 .slogan {
   font-family: "Indie Flower", cursive;
-  font-size: 1.6em;
-  margin: 40px;
+  font-size: 1.4em;
+  margin: 20px;
   color: rgb(71, 76, 79);
 }
 .loading {
@@ -66,4 +65,29 @@ body {
   font-size: 3em;
   margin: 60px;
   color: rgb(71, 76, 79);
+}
+.bookmark {
+  background-color: rgba(240, 102, 102, 0.2);
+  margin: 10px 250px 10px 250px;
+  padding: 15px;
+  border: 2px solid rgb(240, 102, 102);
+  border-radius: 5px;
+}
+h2 {
+  font-size: 1.8em;
+  margin: 20px;
+}
+h3 {
+  font-size: 1.3em;
+}
+.btn-danger {
+  margin: 20px;
+}
+
+input {
+  margin: 30px 1px;
+}
+
+.site > h2 {
+  margin: 20px;
 }

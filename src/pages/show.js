@@ -29,7 +29,7 @@ const Show = (props) => {
       // create a copy of the state
       const newState = { ...editForm };
       // update the newState
-      newState[event.target.website] = event.target.value;
+      newState[event.target.name] = event.target.value;
       // update the state
       setEditForm(newState);
     };
@@ -64,7 +64,7 @@ const Show = (props) => {
           onChange={handleChange}
         />
 
-        <input type="submit" value="Update Website" />
+        <input class="btn btn-warning" type="submit" value="Update Website" />
       </form>
     );
 
@@ -73,7 +73,7 @@ const Show = (props) => {
         <h1>{bookmark.website}</h1>
         <h2>{bookmark.link}</h2>
         {form}
-        <button class="btn btn-outline-dark" onClick={removeBookmark}>
+        <button class="btn btn-danger" onClick={removeBookmark}>
           DELETE WEBSITE
         </button>
       </div>
