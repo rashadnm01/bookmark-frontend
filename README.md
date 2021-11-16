@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+#### Bookmark!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project Summary
 
-## Available Scripts
+- This appliciation provides the user a storage solution for their bookmarked sites. The functionalities of this application are outlined below:
 
-In the project directory, you can run:
+[Description - User Story]
 
-### `npm start`
+# User Stories
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- I can create a new bookmark and see that it loads on the page
+- I can see a list of all my bookmarks when I visit the page
+- click on one of my bookmarks and have it take me to the linked website
+- delete a bookmark
+- Able to update a bookmark in case I made a typo or the URL changed
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## User Persona(s)
 
-### `npm test`
+This approach follows the "Four Perspectives" method by Lene Nielsen outlined in interaction-design.org.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is designed toward the the "Goal-Oriented" Persona, and is defined as follows: "...by its personal, practical, and company-oriented goals as well as by the relationship with the product to be designed, the emotions of the persona when using the product, and the goals of the persona in using the product (hence Goal-Directed)."
 
-### `npm run build`
+Thus, the desired outcome for this application is to provide the user a solution to sore therir their bookmarks, and will provide simple intiutive UI with the functions and features outlined below...
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[Scope of Functionalities]
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Functions & Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Basic CRUD Functionality; User should be able to Create, Read, Update and Delete their stored information.
 
-### `npm run eject`
+## Acceptance Criteria
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To meet Minimum Viable Product, this application will provide:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Detailed README
+- Full CRUD functionality to its data model.
+- Follow RESTful conventions
+- Responsive Styling
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- This Application will have its backend deployed on Heroku with its frontend deployed to Netlify.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Intent & Desired Outcome
 
-## Learn More
+- A full functioning application that provides the user with a bookmark storage solution.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Challenges
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- detail roadblocks : There were some roadblocks encountered when attempting to deploy our apps to Heroku & Netlify. After some troubleshooting, We found that since we we pushing to another repo that we needed to pull from the master repo then push to our own since we were linking these services to our repsective repositories.
 
-### Code Splitting
+[Technologies]
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## List of Technologies
 
-### Analyzing the Bundle Size
+Built with ReactJS, Node.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Dependencies with versions outlined below:
+"cors": "^2.8.5",
+"dotenv": "^10.0.0",
+"express": "^4.17.1",
+"mongoose": "^6.0.12",
+"morgan": "^1.10.0"
 
-### Making a Progressive Web App
+## Models
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+List here any models in your app and their properties:
 
-### Advanced Configuration
+const bookmarkSchema ({
+website: "",
+link: "",
+)},
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Route Table
 
-### Deployment
+List your routes in a table
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+| url                | method | action                         |
+| ------------------ | ------ | ------------------------------ |
+| /Bookmark          | GET    | get all bookmarks (index)      |
+| /bookmark/:id      | GET    | get individual bookmark(show)  |
+| /bookmark/:id/edit | GET    | Show (edit) form               |
+| /bookmark/new      | GET    | Show (new) bookmark form       |
+| /bookmark          | POST   | Input bookmark, redirect home  |
+| /bookmark/:id      | PUT    | Update bookmark, redirect home |
+| /bookmark/:id      | DELETE | Delete bookmark,redirect home  |
 
-### `npm run build` fails to minify
+## Architecture
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-> App
+  -> Header
+  -> Bookmarks |state: bookmarks|
+    -> Routes
+      -> Route |path: "/"|
+        -> Index |Props: bookmarks, createBookmarks|
+    -> Route |path="/bookmarks/:id|
+        -> Show  |Props: bookmarks, updateBookmarks, deleteBookmarks|
+
+[Collaborators]
+##Collaborators
+
+Max, Ray, Rashad, John.
