@@ -73,7 +73,9 @@ const Show = (props) => {
         <h1>{bookmark.website}</h1>
         <h2>{bookmark.link}</h2>
         {form}
-        <button onClick={removeBookmark}>DELETE WEBSITE</button>
+        <button class="btn btn-outline-dark" onClick={removeBookmark}>
+          DELETE WEBSITE
+        </button>
       </div>
     );
   } else {
