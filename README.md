@@ -85,16 +85,18 @@ List your routes in a table
 
 ## Architecture
 
-|-> App                                                                 |
-|  -> Header                                                            |
-|  -> Bookmarks |state: bookmarks|                                      |
-|     -> Routes                                                         |
-|         -> Route |path: "/"|                                          |
-|         -> Index |Props: bookmarks, createBookmarks|                  |
-|     -> Route |path="/bookmarks/:id|                                   |
-|         -> Show  |Props: bookmarks, updateBookmarks, deleteBookmarks| |
 
-[Collaborators]
+-> App
+  -> Header
+  -> Bookmarks |state: bookmarks|
+     -> Routes
+         -> Route |path: "/"|
+         -> Index |Props: bookmarks, createBookmarks|
+     -> Route |path="/bookmarks/:id|
+         -> Show  |Props: bookmarks, updateBookmarks, deleteBookmarks| 
+
+
 ##Collaborators
 
 Max, Ray, Rashad, John.
+
