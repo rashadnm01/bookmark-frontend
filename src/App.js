@@ -1,5 +1,5 @@
+import Bookmarks from "./components/Bookmarks";
 import Header from "./components/Header";
-import Bookmarks from ".components/Bookmarks";
 
 function App() {
   return (

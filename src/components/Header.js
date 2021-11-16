@@ -4,7 +4,10 @@ const Header = (props) => {
   return (
     <nav className="nav">
       <Link to="/">
-        <h1>Bookmarks</h1>
+        <h1 className="logo">Bookmarks</h1>
+        <p className="slogan">
+          Helping you keep track of your favorite websites.
+        </p>
       </Link>
     </nav>
   );

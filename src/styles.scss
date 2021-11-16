@@ -1,8 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Grechen+Fuemen&family=Indie+Flower&family=Numans&display=swap");
 // ---------------------
 // Variables
 // ---------------------
-$maincolor: rgb(41, 41, 39);
-$contrastcolor: rgb(240, 234, 222);
+* {
+  margin: 0;
+}
+
+$maincolor: rgb(71, 76, 79);
+$contrastcolor: rgb(247, 246, 244);
 
 // ---------------------
 // Mixins
@@ -22,8 +27,10 @@ nav {
   @include light-text-dark-bg;
   display: flex;
   justify-content: center;
-  border: 5px solid rgb(216, 56, 34);
-  margin: 20px;
+  padding: 8px;
+  width: 90%;
+  margin: auto;
+  font-size: 1.2em;
 
   a {
     @include light-text-dark-bg();
@@ -36,6 +43,27 @@ nav {
 }
 
 body {
-  background-color: beige;
+  background-color: rgb(247, 246, 244);
   text-align: center;
+  font-family: "Numans", sans-serif;
+  color: rgb(71, 76, 79);
+}
+.logo {
+  font-family: "Grechen Fuemen", cursive;
+  font-size: 7em;
+  margin: 40px;
+  color: rgb(71, 76, 79);
+  text-shadow: 5px 2px rgb(132, 148, 147);
+}
+.slogan {
+  font-family: "Indie Flower", cursive;
+  font-size: 1.6em;
+  margin: 40px;
+  color: rgb(71, 76, 79);
+}
+.loading {
+  font-family: "Indie Flower", cursive;
+  font-size: 3em;
+  margin: 60px;
+  color: rgb(71, 76, 79);
 }
