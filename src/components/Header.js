@@ -1,9 +1,13 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
-export default function Header() {
+const Header = (props) => {
   return (
-    <section>
-      <h1>Bookmarks</h1>
-    </section>
+    <nav className="nav">
+      <Link to="/">
+        <h1>Bookmarks</h1>
+      </Link>
+    </nav>
   );
-}
+};
+
+export default Header;

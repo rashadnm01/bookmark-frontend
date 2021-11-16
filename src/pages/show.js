@@ -8,21 +8,21 @@ const Show = (props) => {
   const params = useParams();
   // grab the id from params
   const id = params.id;
-  // grab websites from props
-  const websites = props.websites;
+  // grab bookmarks from props
+  const bookmarks = props.bookmarks;
   // create state for form
   const [editForm, setEditForm] = useState({});
   // useEffect to set state to the existing site, when the data is available
   useEffect(() => {
-    if (props.websites) {
-      const site = websites.find((p) => p._id === id);
-      setEditForm(site);
+    if (props.bookmarks) {
+      const bookmark = bookmarks.find((p) => p._id === id);
+      setEditForm(bookmark);
     }
-  }, [props.websites]);
+  }, [props.bookmarks]);
 
-  if (props.websites) {
-    // grab the target site from the websites array
-    const site = websites.find((p) => p._id === id);
+  if (props.bookmarks) {
+    // grab the target site from the bookmarks array
+    const bookmark = bookmarks.find((p) => p._id === id);
 
     // handleChange function for form
     const handleChange = (event) => {
@@ -38,13 +38,13 @@ const Show = (props) => {
     const handleSubmit = (event) => {
       // prevent the refresh
       event.preventDefault();
-      // pass the form data to updateWebsites
-      props.updateWebsites(editForm, site._id);
-      // redirect websites back to index
+      // pass the form data to updateBookmarks
+      props.updateBookmarks(editForm, bookmark._id);
+      // redirect bookmarks back to index
       navigate("/");
     };
-    const removeSite = () => {
-      props.deleteWebsites(site._id);
+    const removeBookmark = () => {
+      props.deleteBookmarks(bookmark._id);
       navigate("/");
     };
     const form = (
@@ -70,10 +70,10 @@ const Show = (props) => {
 
     return (
       <div className="site">
-        <h1>{site.website}</h1>
-        <h2>{site.link}</h2>
+        <h1>{bookmark.website}</h1>
+        <h2>{bookmark.link}</h2>
         {form}
-        <button onClick={removeSite}>DELETE WEBSITE</button>
+        <button onClick={removeBookmark}>DELETE WEBSITE</button>
       </div>
     );
   } else {
