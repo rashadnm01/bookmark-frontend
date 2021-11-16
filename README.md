@@ -85,14 +85,14 @@ List your routes in a table
 
 ## Architecture
 
--> App
-  -> Header
-  -> Bookmarks |state: bookmarks|
-    -> Routes
-      -> Route |path: "/"|
-        -> Index |Props: bookmarks, createBookmarks|
-    -> Route |path="/bookmarks/:id|
-        -> Show  |Props: bookmarks, updateBookmarks, deleteBookmarks|
+|-> App                                                                 |
+|  -> Header                                                            |
+|  -> Bookmarks |state: bookmarks|                                      |
+|     -> Routes                                                         |
+|         -> Route |path: "/"|                                          |
+|         -> Index |Props: bookmarks, createBookmarks|                  |
+|     -> Route |path="/bookmarks/:id|                                   |
+|         -> Show  |Props: bookmarks, updateBookmarks, deleteBookmarks| |
 
 [Collaborators]
 ##Collaborators
